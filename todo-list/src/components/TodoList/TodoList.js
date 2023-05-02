@@ -11,6 +11,8 @@ function TodoList(props) {
           task={todo.text}
           onEdit={props.onEdit}
           onDelete={props.onDelete}
+          onToggleCompleted={props.onToggleCompleted}
+          completed={todo.completed}
         />
       ))}
     </div>

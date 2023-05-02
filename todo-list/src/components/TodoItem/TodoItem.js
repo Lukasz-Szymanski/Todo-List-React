@@ -4,7 +4,6 @@ import "./Style.css";
 function TodoItem(props) {
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(props.task);
-  const [isChecked, setIsChecked] = useState(false);
 
   const handleDeleteClick = () => {
     props.onDelete(props.todo.id);
@@ -29,12 +28,12 @@ function TodoItem(props) {
   };
 
   const handleCheckboxChange = () => {
-    setIsChecked(true);
+    props.onToggleCompleted(props.todo.id);
   };
 
   const viewTemplate = (
     <div className="task-view">
-      <div className={`task-text ${isChecked ? "completed" : ""}`}>
+      <div className={`task-text ${props.todo.completed ? "completed" : ""}`}>
         {props.todo.text}
       </div>
       <div className="task-buttons">
@@ -42,7 +41,7 @@ function TodoItem(props) {
         <button onClick={handleDeleteClick}>Delete</button>
         <input
           type="checkbox"
-          checked={isChecked}
+          checked={props.todo.completed}
           onChange={handleCheckboxChange}
         />
       </div>
