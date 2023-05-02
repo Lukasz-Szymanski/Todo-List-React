@@ -12,3 +12,7 @@
   border-radius: 10px;
   width: 60px;
 }
+
+.completed {
+  text-decoration: line-through;
+}
