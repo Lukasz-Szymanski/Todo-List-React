@@ -1,0 +1,14 @@
+.task-view {
+  width: 20rem;
+}
+
+.task-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.task-buttons button {
+  border-radius: 10px;
+  width: 60px;
+}

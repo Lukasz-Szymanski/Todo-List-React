@@ -1,0 +1,21 @@
+.input-field {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.input-field input {
+  width: 15rem;
+  height: 2rem;
+  border-radius: 10px;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+.btn {
+  width: 70px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
