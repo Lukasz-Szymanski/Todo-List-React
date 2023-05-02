@@ -4,10 +4,10 @@ This is a simple TodoList application created using React.
 
 ## Features
 
-Add new tasks
-Edit existing tasks
-Delete tasks
-Mark tasks as completed
+Add new tasks.
+Edit existing tasks.
+Delete tasks.
+Mark tasks as completed.
 
 ## Installation
 
