@@ -22,6 +22,7 @@ function TodoForm(props) {
         placeholder="Add new task"
         value={inputValue}
         onChange={handleInputChange}
+        required
       />
       <button className="btn" type="submit">
         Add
