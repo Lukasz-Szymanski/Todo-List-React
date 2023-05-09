@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
@@ -7,6 +7,13 @@ import TodoSummary from "./components/TodoSummary";
 function App() {
   const [todos, setTodos] = useState([]);
 
+  useEffect(() => {
+    const storedTodos = localStorage.getItem("todos");
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
   const handleSubmit = (text) => {
     const newTodo = {
       id: Math.random(),
@@ -14,6 +21,7 @@ function App() {
       completed: false,
     };
     setTodos([...todos, newTodo]);
+    localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
   };
 
   const handleEdit = (id, newText) => {
@@ -24,11 +32,13 @@ function App() {
       return todo;
     });
     setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
 
   const handleDelete = (id) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
 
   const handleToggleCompleted = (id) => {
@@ -39,6 +49,7 @@ function App() {
       return todo;
     });
     setTodos(updatedTodos);
+    localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
   return (
     <div>

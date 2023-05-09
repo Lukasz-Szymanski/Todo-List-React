@@ -19,9 +19,6 @@ function TodoItem(props) {
   };
 
   const handleSaveClick = () => {
-    if (editValue.trim() === "") {
-      return;
-    }
     props.onEdit(props.todo.id, editValue);
     setIsEditing(false);
   };
