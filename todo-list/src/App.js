@@ -7,6 +7,16 @@ import TodoSummary from "./components/TodoSummary";
 function App() {
   const [todos, setTodos] = useState([]);
 
+  function isDuplicate(text, todos) {
+    if (!text || typeof text !== "string") {
+      return false;
+    }
+    const normalizedText = text.trim().toLowerCase();
+    return todos.some(
+      (todo) => todo.text.trim().toLowerCase() === normalizedText
+    );
+  }
+
   useEffect(() => {
     const storedTodos = localStorage.getItem("todos");
     if (storedTodos) {
@@ -15,13 +25,17 @@ function App() {
   }, []);
 
   const handleSubmit = (text) => {
-    if (!text.trim()) {
+    const trimmedText = text.trim();
+    if (trimmedText === "") {
       return;
     }
-
+    if (isDuplicate(trimmedText, todos)) {
+      alert("This post already exists");
+      return;
+    }
     const newTodo = {
       id: Math.random(),
-      text: text,
+      text: trimmedText,
       completed: false,
     };
     setTodos([...todos, newTodo]);
