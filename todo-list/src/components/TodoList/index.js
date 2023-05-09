@@ -1,4 +1,4 @@
-import TodoItem from "../TodoItem/TodoItem";
+import TodoItem from "../TodoItem";
 import "./Style.css";
 
 function TodoList(props) {
