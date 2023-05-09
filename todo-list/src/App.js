@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import Header from "./components/Header/Header";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import TodoSummary from "./components/TodoSummary";
@@ -43,7 +42,7 @@ function App() {
   };
   return (
     <div>
-      <Header />
+      <h1 className="header">Todo List</h1>
       <TodoSummary todos={todos} />
       <TodoForm onSubmit={handleSubmit} />
       <TodoList

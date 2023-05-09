@@ -19,6 +19,9 @@ function TodoItem(props) {
   };
 
   const handleSaveClick = () => {
+    if (editValue.trim() === "") {
+      return;
+    }
     props.onEdit(props.todo.id, editValue);
     setIsEditing(false);
   };
@@ -50,7 +53,12 @@ function TodoItem(props) {
 
   const editTemplate = (
     <div className="task-edit">
-      <input type="text" value={editValue} onChange={handleEditChange} />
+      <input
+        type="text"
+        value={editValue}
+        onChange={handleEditChange}
+        required
+      />
       <div className="task-buttons">
         <button onClick={handleSaveClick}>Save</button>
         <button onClick={handleCancelClick}>Cancel</button>
