@@ -15,6 +15,10 @@ function App() {
   }, []);
 
   const handleSubmit = (text) => {
+    if (!text.trim()) {
+      return;
+    }
+
     const newTodo = {
       id: Math.random(),
       text: text,
@@ -25,6 +29,9 @@ function App() {
   };
 
   const handleEdit = (id, newText) => {
+    if (!newText.trim()) {
+      return;
+    }
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
         return { ...todo, text: newText };
