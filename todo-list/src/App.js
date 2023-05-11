@@ -37,6 +37,7 @@ function App() {
       id: Math.random(),
       text: trimmedText,
       completed: false,
+      dateAdded: new Date().toLocaleString(),
     };
     setTodos([...todos, newTodo]);
     localStorage.setItem("todos", JSON.stringify([...todos, newTodo]));
@@ -72,6 +73,7 @@ function App() {
     setTodos(updatedTodos);
     localStorage.setItem("todos", JSON.stringify(updatedTodos));
   };
+
   return (
     <div>
       <h1 className="header">Todo List</h1>

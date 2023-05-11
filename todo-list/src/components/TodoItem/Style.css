@@ -1,5 +1,5 @@
 .task-view {
-  width: 20rem;
+  width: 50rem;
 }
 
 .task-edit {
@@ -30,4 +30,9 @@
 
 .completed {
   text-decoration: line-through;
+}
+
+.text-date {
+  font-size: 12px;
+  font-style: oblique;
 }

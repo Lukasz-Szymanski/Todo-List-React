@@ -45,6 +45,7 @@ function TodoItem(props) {
           onChange={handleCheckboxChange}
         />
       </div>
+      <span className="text-date">Added: {props.todo.dateAdded}</span>
     </div>
   );
 
